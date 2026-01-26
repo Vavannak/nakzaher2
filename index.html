@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>វ៉ា វណ្ណះ - Profile</title>
+
+    <link rel="icon" type="image/jpg" href="192542.jpg">
+    <link rel="apple-touch-icon" href="192542.jpg">
+
     <style>
         /* នាំចូលពុម្ពអក្សរខ្មែរពី Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&family=Moul&display=swap');
@@ -19,7 +23,8 @@
 
         /* ផ្នែកខាងលើ (Header) */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            /* បន្ថែមស្រទាប់ពណ៌សថ្លា (0.4) ពីលើរូបភាពដើម្បីឱ្យអក្សរខ្មៅមើលទៅច្បាស់ */
+            background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.466)),
                 url('https://h.top4top.io/p_367315nvi0.jpg');
             background-size: cover;
             background-position: center;
@@ -28,7 +33,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: white;
             text-align: center;
         }
 
@@ -46,7 +50,17 @@
             font-family: 'Moul', serif;
             margin: 10px 0;
             font-size: 1.8rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            /* កែឈ្មោះទៅជាពណ៌ដិតដែរដើម្បីឱ្យស៊ីគ្នា */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* កែពណ៌ពាក្យស្វាគមន៍ឱ្យទៅជាពណ៌ខ្មៅ */
+        header p {
+            color: #3f3b3b;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0;
         }
 
         /* ប្រអប់ផ្ទុកខ្លឹមសារ */
@@ -77,6 +91,7 @@
             border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .info-list li b {
@@ -86,10 +101,10 @@
         /* ប៊ូតុងទំនាក់ទំនង */
         .contact-btn {
             display: inline-block;
-            margin-top: 20px;
+            margin: 10px;
             padding: 12px 25px;
             background-color: #212dcf;
-            color: rgb(255, 255, 255);
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             transition: 0.3s;
@@ -98,6 +113,7 @@
 
         .contact-btn:hover {
             background-color: #00ffea;
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
@@ -131,10 +147,10 @@
                 <li><b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 20XX</span></li>
                 <li><b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
                 <li><b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
-                <li><b>ទីកន្លែងកំណើត:</b> <span>​​​​ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខែត្តក្រចេះ</span>
+                <li><b>ទីកន្លែងកំណើត:</b> <span>​​​​ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span>
                 </li>
                 <li><b>ស្ថានភាព:</b> <span>សិស្ស </span></li>
-                <li><b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខែត្តក្រចេះ</span>
+                <li><b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span>
                 </li>
                 <li><b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
             </ul>
@@ -149,7 +165,7 @@
     </div>
 
     <footer>
-        Develop website 2026 រក្សាសិទ្ធិដោយ <b>វ៉ា វណ្ណះ</b>
+        Develop Website 2026 រក្សាសិទ្ធិដោយ <b>វ៉ា វណ្ណះ</b>
     </footer>
 
 </body>
