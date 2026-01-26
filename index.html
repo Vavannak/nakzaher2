@@ -1,416 +1,157 @@
 <!DOCTYPE html>
 <html lang="km">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ព័ត៌មានអំពី វ៉ា វណ្ណៈ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>វ៉ា វណ្ណះ - Profile</title>
     <style>
-        * {
+        /* នាំចូលពុម្ពអក្សរខ្មែរពី Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&family=Moul&display=swap');
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Kantumruy', 'Khmer OS', sans-serif;
+            background-color: #f0f2f5;
+            color: #2c3e50;
         }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
+
+        /* ផ្នែកខាងលើ (Header) */
         header {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://h.top4top.io/p_367315nvi0.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 30px;
             text-align: center;
-            position: relative;
         }
-        
-        .profile-img-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            overflow: hidden;
-            border: 5px solid white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            background-color: #e6e6e6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
+
         .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .profile-img-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e0e0e0;
-            color: #666;
-            font-size: 14px;
-            text-align: center;
-            padding: 10px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
+            border: 4px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             margin-bottom: 10px;
         }
-        
-        .title {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 10px;
+
+        header h1 {
+            font-family: 'Moul', serif;
+            margin: 10px 0;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
+
+        /* ប្រអប់ផ្ទុកខ្លឹមសារ */
+        .container {
+            max-width: 700px;
+            margin: -50px auto 40px;
+            background: white;
+            padding: 40px;
             border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 30px;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-        }
-        
-        .section-title {
-            color: #1e5799;
-            border-bottom: 2px solid #1e5799;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+
+        h2 {
+            color: #586397;
+            border-left: 5px solid #4320be;
+            padding-left: 15px;
             font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-top: 30px;
         }
-        
-        .section-title i {
-            color: #207cca;
+
+        .info-list {
+            list-style: none;
+            padding: 0;
         }
-        
-        ul {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .skill-item {
-            margin-bottom: 15px;
-        }
-        
-        .skill-name {
+
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
         }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-level {
-            height: 100%;
-            background-color: #1e5799;
-            border-radius: 5px;
-        }
-        
-        .language-flag {
-            font-size: 1.5rem;
-            margin-right: 10px;
 
-display: inline-block;
+        .info-list li b {
+            color: #5f6368;
         }
-        
+
+        /* ប៊ូតុងទំនាក់ទំនង */
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #212dcf;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .contact-btn:hover {
+            background-color: #00ffea;
+            transform: translateY(-2px);
+        }
+
         footer {
-            background-color: #1e5799;
-            color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .profile-img-container {
-                width: 180px;
-                height: 180px;
-            }
-        }
-        
-        /* Animation for skills */
-        @keyframes fillBar {
-            from { width: 0; }
-            to { width: var(--target-width); }
-        }
-        
-        .skill-level {
-            animation: fillBar 1.5s ease-out forwards;
-        }
-        
-        .language-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-        
-        .language-name {
-            display: flex;
-            align-items: center;
-            min-width: 150px;
+            padding: 30px;
+            font-size: 0.85rem;
+            color: #888;
         }
     </style>
 </head>
+
 <body>
+
+    <header>
+        <img src="https://h.top4top.io/p_367315nvi0.jpg" alt="វ៉ា វណ្ណះ" class="profile-img">
+        <h1>វ៉ា វណ្ណះ</h1>
+        <p>ស្វាគមន៍មកកាន់គេហទំព័រផ្ទាល់ខ្លួនរបស់ខ្ញុំ</p>
+    </header>
+
     <div class="container">
-        <header>
-            <div class="profile-img-container">
-                <!-- រូបភាពពិតប្រាកដពីលីងដែលអ្នកផ្តល់ -->
-                <img src="https://h.top4top.io/p_367315nvi0.jpg" alt="រូបវ៉ា វណ្ណៈ" class="profile-img" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
-                <div class="profile-img-placeholder" id="placeholder" style="display: none;">
-                    <div>
-                        <i class="fas fa-user" style="font-size: 50px; margin-bottom: 10px;"></i>
-                        <p>រូបភាព </p>
-                    </div>
-                </div>
-            </div>
-            <h1>វ៉ា វណ្ណៈ</h1>
-            <p class="title">ព័ត៌មានផ្ទាល់ខ្លួនរបស់ វ៉ា វណ្ណៈ</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+855 66 446 963</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>vavannak364@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>កម្ពុជា, ក្រចេះ</span>
-                </div>
-            </div>
-        </header>
-        
-        <div class="content">
-            <div class="left-column">
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-user-circle"></i> ព័ត៌មានផ្ទាល់ខ្លួន</h2>
-                    <p><strong>ឈ្មោះ:</strong> វ៉ា វណ្ណៈ</p>
-                    <p><strong>ភេទ:</strong> ប្រុស</p>
-                    <p><strong>ថ្ងៃខែឆ្នាំកំណើត:</strong> ២៦ វិច្ចិកា ២០១០</p>
-                    <p><strong>សញ្ជាតិ:</strong> ខ្មែរ</p>
-                    <p><strong>ទីកន្លែងកំណើត:</strong> ខេត្តក្រចេះ</p>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> ការអប់រំ</h2>
-                    <ul>
-                        <li><strong>សិលធម៌:</strong>  សុភាពរាបសារ</li>
-                        <li><strong>ឆ្នាំសិក្សា:</strong> ២០១៥ រហូតឆ្នាំបញ្ចប់ការសិក្សា</li>
-                        <li><strong>សិស្សមកពី:</strong> វិទ្យាល័យជ្រោយបន្ទាយ</li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-language"></i> ភាសា</h2>
-                    <div class="language-section">
-                        <div class="language-name">
-                            <span class="language-flag">ᴋʜ</span>
+        <section>
+            <h2>នាមខ្លួន</h2>
+            <p>សួស្តី! ខ្ញុំបាទឈ្មោះ <b>វ៉ា វណ្ណះ</b>។</p>
+        </section>
 
-<strong>ភាសាខ្មែរ</strong>
-                        </div>
-                        <div class="skill-bar" style="flex-grow: 1;">
-                            <div class="skill-level" style="--target-width: 100%; width: 100%;"></div>
-                        </div>
-                        <span style="min-width: 60px; text-align: right;">ពូកែ</span>
-                    </div>
-                    
-                    <div class="language-section">
-                        <div class="language-name">
-                            <span class="language-flag">ᴇɴ</span>
-                            <strong>ភាសាអង់គ្លេស</strong>
-                        </div>
-                        <div class="skill-bar" style="flex-grow: 1;">
-                            <div class="skill-level" style="--target-width: 60%; width: 60%;"></div>
-                        </div>
-                        <span style="min-width: 60px; text-align: right;">មធ្យម</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="right-column">
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-briefcase"></i> បទពិសោធន៍សិក្សា</h2>
-                    <ul>
-                        <li><strong>២០១៥-២០២២:</strong> រៀនពូកែ ទទួលបានលេខ ១រាល់ខែ</li>
-                        <li><strong>២០២២-២០២៥:</strong> ការសិក្សាធ្លាក់ចុះ</li>
-                        <li><strong>២០២៥-បច្ចុប្បន្ន:</strong> ខំរៀនឡើងវិញ </li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> ការសិក្សាបច្ចុប្បន្ន</h2>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>អនុវត្តសិក្សា</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="--target-width: 85%; width: 85%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>ខំរៀនឡើងវិញដោយខ្លួនឯង</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="--target-width: 80%; width: 80%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>រៀនគួរជំនួយ</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="--target-width: 70%; width: 70%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>ស្រាវជ្រាវ</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="--target-width: 65%; width: 65%;"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title"><i class="fas fa-certificate"></i> សមត្ថភាពផ្សេងៗ</h2>
-                    <ul>
-                        <li>ជួយកិច្ចការផ្ទះ</li>
-                        <li>ខំប្រឹងរៀនសូត្រ</li>
-                        <li>ជាបងប្រុសម្នាក់ ជួយមើលខុសត្រូវប្អូន</li>
-                        <li>ផ្សេងទៀត។ល។</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>© ២០២៦ វ៉ា វណ្ណៈ អ្នកគ្រប់គ្រង</p>
+        <section>
+            <h2>ព័ត៌មានលម្អិត</h2>
+            <ul class="info-list">
+                <li><b>ឈ្មោះពេញ:</b> <span>វ៉ា វណ្ណះ</span></li>
+                <li><b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 20XX</span></li>
+                <li><b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
+                <li><b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
+                <li><b>ទីកន្លែងកំណើត:</b> <span>​​​​ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខែត្តក្រចេះ</span>
+                </li>
+                <li><b>ស្ថានភាព:</b> <span>សិស្ស </span></li>
+                <li><b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខែត្តក្រចេះ</span>
+                </li>
+                <li><b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
+            </ul>
+        </section>
 
-<p>ទំនាក់ទំនង: vavannak364@gmail.com | +855 66 446 963</p>
-            <div style="margin-top: 10px;">
-                <i class="fab fa-facebook" style="margin: 0 10px; font-size: 1.2rem;"></i>
-                <i class="fab fa-telegram" style="margin: 0 10px; font-size: 1.2rem;"></i>
-                <i class="fab fa-linkedin" style="margin: 0 10px; font-size: 1.2rem;"></i>
-                <i class="fab fa-github" style="margin: 0 10px; font-size: 1.2rem;"></i>
-            </div>
-        </footer>
+        <section style="text-align: center;">
+            <h2>ទំនាក់ទំនង</h2>
+            <p>អ្នកអាចទាក់ទងមកខ្ញុំតាមរយៈប៊ូតុងខាងក្រោម៖</p>
+            <a href="https://www.messenger.com/Vannakk67" class="contact-btn">Messenger</a>
+            <a href="https://t.me/NakGenzz" class="contact-btn">Telegram</a>
+        </section>
     </div>
 
-    <script>
-        // Add animation to skill bars when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const skillLevels = document.querySelectorAll('.skill-level');
-            
-            skillLevels.forEach(level => {
-                // Reset width to 0 for animation
-                level.style.width = '0';
-                
-                // Get target width from CSS variable
-                const targetWidth = getComputedStyle(level).getPropertyValue('--target-width');
-                
-                // Set animation delay based on element position
-                const delay = Math.random() * 0.5;
-                level.style.animationDelay = delay + 's';
-                
-                // Set width to target value after a short delay to trigger animation
-                setTimeout(() => {
-                    level.style.width = targetWidth;
-                }, 100);
-            });
-            
-            // Check if profile image loaded successfully
-            const profileImg = document.querySelector('.profile-img');
-            const placeholder = document.getElementById('placeholder');
-            
-            profileImg.onerror = function() {
-                profileImg.style.display = 'none';
-                placeholder.style.display = 'flex';
-            };
-            
-            // If image loads successfully, hide placeholder
-            profileImg.onload = function() {
-                placeholder.style.display = 'none';
-            };
-        });
-    </script>
+    <footer>
+        &copy; 2026 រក្សាសិទ្ធិដោយ <b>វ៉ា វណ្ណះ</b>
+    </footer>
+
 </body>
+
 </html>
