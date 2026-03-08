@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="km">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -8,8 +7,7 @@
     <link rel="icon" type="image/jpg" href="192542.jpg">
     <link rel="apple-touch-icon" href="192542.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Moul&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Moul&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -49,8 +47,8 @@
         /* ===== HERO FULL SCREEN ===== */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, rgba(10, 20, 40, 0.85), rgba(0, 0, 0, 0.75)),
-                url('https://h.top4top.io/p_367315nvi0.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10, 20, 40, 0.85), rgba(0, 0, 0, 0.75)), 
+                        url('https://h.top4top.io/p_367315nvi0.jpg') center/cover no-repeat;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -63,21 +61,14 @@
             backdrop-filter: blur(6px);
             padding: clamp(1.2rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
             border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255,255,255,0.2);
             max-width: 90%;
             animation: fadeScale 0.8s ease;
         }
 
         @keyframes fadeScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .profile-img {
@@ -86,15 +77,15 @@
             border-radius: 50%;
             border: 4px solid white;
             object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             margin-bottom: 0.6rem;
         }
 
         .hero h1 {
             font-family: 'Moul', serif;
-            font-size: clamp(1rem, 4vw, 2rem);
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
             color: white;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
             line-height: 1.2;
             margin-bottom: 0.2rem;
         }
@@ -103,12 +94,12 @@
             color: white;
             font-weight: 500;
             font-size: clamp(0.95rem, 3.5vw, 1.4rem);
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0,0,0,0.4);
             backdrop-filter: blur(4px);
             display: inline-block;
             padding: 0.3rem 1.5rem;
             border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* ===== THEME TOGGLE ===== */
@@ -119,9 +110,9 @@
             z-index: 100;
             width: 48px;
             height: 48px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
             backdrop-filter: blur(8px);
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            border: 1.5px solid rgba(255,255,255,0.4);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -129,17 +120,17 @@
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             transition: 0.2s;
         }
 
         .theme-toggle:hover {
             transform: scale(1.08);
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
         }
 
         body.dark .theme-toggle {
-            background: rgba(20, 30, 50, 0.6);
+            background: rgba(20,30,50,0.6);
             color: #ffdb9d;
             border-color: #5f7f9f;
         }
@@ -152,8 +143,8 @@
             backdrop-filter: blur(12px);
             border-radius: 1.8rem;
             padding: clamp(1.3rem, 4vw, 2rem);
-            box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 40px -20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.6);
             width: calc(100% - 2rem);
             position: relative;
             z-index: 10;
@@ -200,15 +191,15 @@
             align-items: flex-start;
             gap: 10px;
             padding: 0.6rem 0.9rem;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255,255,255,0.5);
             border-radius: 28px;
-            border: 1px solid rgba(120, 150, 200, 0.2);
+            border: 1px solid rgba(120,150,200,0.2);
             font-size: clamp(0.9rem, 3.2vw, 1rem);
             backdrop-filter: blur(2px);
         }
 
         body.dark .info-grid li {
-            background: rgba(30, 40, 55, 0.6);
+            background: rgba(30,40,55,0.6);
             border-color: #33495f;
         }
 
@@ -295,8 +286,8 @@
             font-size: clamp(0.95rem, 3.5vw, 1.1rem);
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 6px 12px rgba(0, 20, 50, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 12px rgba(0,20,50,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: 0.2s;
             min-width: 160px;
         }
@@ -308,7 +299,7 @@
         .contact-btn:hover {
             background: var(--btn-hover);
             transform: translateY(-3px);
-            box-shadow: 0 10px 15px rgba(0, 30, 70, 0.3);
+            box-shadow: 0 10px 15px rgba(0,30,70,0.3);
         }
 
         /* Footer */
@@ -326,7 +317,7 @@
 
         /* greeting note */
         .greeting-note {
-            background: rgba(150, 180, 240, 0.1);
+            background: rgba(150,180,240,0.1);
             border-radius: 28px;
             padding: 0.8rem 1.2rem;
             margin: 1.2rem 0 0.2rem;
@@ -353,27 +344,22 @@
                 align-items: flex-start;
                 gap: 2px;
             }
-
             .info-grid li b {
                 min-width: auto;
                 font-size: 0.9rem;
             }
-
             .info-grid li span {
                 padding-left: 2rem;
                 font-size: 0.95rem;
             }
-
             .btn-group {
                 flex-direction: column;
                 align-items: center;
             }
-
             .contact-btn {
                 width: 100%;
                 max-width: 240px;
             }
-
             .theme-toggle {
                 width: 42px;
                 height: 42px;
@@ -384,7 +370,6 @@
         }
     </style>
 </head>
-
 <body>
 
     <div class="theme-toggle" id="themeToggle" title="ប្ដូររបៀប">
@@ -416,11 +401,9 @@
             <li><i class="fas fa-cake-candles"></i> <b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 20XX</span></li>
             <li><i class="fas fa-graduation-cap"></i> <b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
             <li><i class="fas fa-school"></i> <b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
-            <li><i class="fas fa-map-pin"></i> <b>ទីកន្លែងកំណើត:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ
-                    ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
+            <li><i class="fas fa-map-pin"></i> <b>ទីកន្លែងកំណើត:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
             <li><i class="fas fa-user-tag"></i> <b>ស្ថានភាព:</b> <span>សិស្ស</span></li>
-            <li><i class="fas fa-house-chimney"></i> <b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ
-                    ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
+            <li><i class="fas fa-house-chimney"></i> <b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
             <li><i class="fas fa-chart-line"></i> <b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
         </ul>
 
@@ -444,23 +427,20 @@
         </div>
         <div class="contact-section">
             <div class="btn-group">
-                <a href="https://m.me/Vannakk67" class="contact-btn" target="_blank"><i
-                        class="fab fa-facebook-messenger"></i> Messenger</a>
-                <a href="https://t.me/NakGenzz" class="contact-btn" target="_blank"><i
-                        class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="https://m.me/Vannakk67" class="contact-btn" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+                <a href="https://t.me/NakGenzz" class="contact-btn" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
             </div>
             <p style="opacity: 0.6; font-size: 0.8rem;"><i class="fas fa-smile"></i> ឆាតបានដោយសេរី</p>
         </div>
     </main>
 
     <footer>
-        <i class="fas fa-code"></i> Develop Website <span id="footerYear">2026</span> | <b>វ៉ា វណ្ណះ</b> <i
-            class="fas fa-crown" style="color: goldenrod;"></i><br>
+        <i class="fas fa-code"></i> Develop Website <span id="footerYear">2026</span> | <b>វ៉ា វណ្ណះ</b> <i class="fas fa-crown" style="color: goldenrod;"></i><br>
         <span style="font-size: 0.7rem;">រក្សាសិទ្ធិគ្រប់យ៉ាង</span>
     </footer>
 
     <script>
-        (function () {
+        (function() {
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
             const icon = themeToggle.querySelector('i');
@@ -490,5 +470,4 @@
         })();
     </script>
 </body>
-
 </html>
