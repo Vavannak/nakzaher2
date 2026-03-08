@@ -3,173 +3,492 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>វ៉ា វណ្ណះ - Profile</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>វ៉ា វណ្ណះ · Portfolio</title>
     <link rel="icon" type="image/jpg" href="192542.jpg">
     <link rel="apple-touch-icon" href="192542.jpg">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Moul&display=swap"
+        rel="stylesheet">
     <style>
-        /* នាំចូលពុម្ពអក្សរខ្មែរពី Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;700&family=Moul&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-light: #f4f7fc;
+            --text-light: #1e2a3a;
+            --bg-dark: #121826;
+            --text-dark: #e0e4f0;
+            --card-light: rgba(255, 255, 255, 0.85);
+            --card-dark: rgba(20, 28, 40, 0.85);
+            --accent: #3a5f9e;
+            --accent-light: #6f93cf;
+            --btn-gradient: linear-gradient(145deg, #284a7a, #142d4f);
+            --btn-hover: linear-gradient(145deg, #3165a5, #1d3b6b);
+        }
 
         body {
             font-family: 'Kantumruy Pro', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f2f5;
-            color: #2c3e50;
-        }
-
-        /* ផ្នែកខាងលើ (Header) */
-        header {
-            /* បន្ថែមស្រទាប់ពណ៌សថ្លា (0.4) ពីលើរូបភាពដើម្បីឱ្យអក្សរខ្មៅមើលទៅច្បាស់ */
-            background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.466)),
-                url('https://c.top4top.io/p_36933u4wl1.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            line-height: 1.5;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background-color 0.3s, color 0.2s;
+        }
+
+        body.dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        /* ===== HERO FULL SCREEN ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10, 20, 40, 0.85), rgba(0, 0, 0, 0.75)),
+                url('https://h.top4top.io/p_367315nvi0.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
         }
 
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(6px);
+            padding: clamp(1.2rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            max-width: 90%;
+            animation: fadeScale 0.8s ease;
+        }
+
+        @keyframes fadeScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: min(130px, 25vw);
+            height: min(130px, 25vw);
             border-radius: 50%;
-            border: 4px solid #fff;
+            border: 4px solid white;
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.6rem;
         }
 
-        header h1 {
+        .hero h1 {
             font-family: 'Moul', serif;
-            margin: 10px 0;
-            font-size: 1.8rem;
-            color: #ffffff;
-            /* កែឈ្មោះទៅជាពណ៌ដិតដែរដើម្បីឱ្យស៊ីគ្នា */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-
-        /* កែពណ៌ពាក្យស្វាគមន៍ឱ្យទៅជាពណ៌ខ្មៅ */
-        header p {
-            color: #3f3b3b;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        /* ប្រអប់ផ្ទុកខ្លឹមសារ */
-        .container {
-            max-width: 700px;
-            margin: -50px auto 40px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #586397;
-            border-left: 5px solid #4320be;
-            padding-left: 15px;
-            font-size: 1.4rem;
-            margin-top: 30px;
-        }
-
-        .info-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .info-list li b {
-            color: #5f6368;
-        }
-
-        /* ប៊ូតុងទំនាក់ទំនង */
-        .contact-btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background-color: #212dcf;
+            font-size: clamp(1rem, 4vw, 2rem);
             color: white;
-            text-decoration: none;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero p {
+            color: white;
+            font-weight: 500;
+            font-size: clamp(0.95rem, 3.5vw, 1.4rem);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark .theme-toggle {
+            background: rgba(20, 30, 50, 0.6);
+            color: #ffdb9d;
+            border-color: #5f7f9f;
+        }
+
+        /* ===== MAIN CARD ===== */
+        .card {
+            max-width: 750px;
+            margin: -2.5rem auto 2rem;
+            background: var(--card-light);
+            backdrop-filter: blur(12px);
+            border-radius: 1.8rem;
+            padding: clamp(1.3rem, 4vw, 2rem);
+            box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: calc(100% - 2rem);
+            position: relative;
+            z-index: 10;
+        }
+
+        body.dark .card {
+            background: var(--card-dark);
+            border-color: #2e3a4a;
+        }
+
+        /* Section titles */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            font-family: 'Moul', serif;
+            font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+            margin: 1.8rem 0 0.8rem 0;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+        }
+
+        body.dark .section-title {
+            color: #b7cdff;
+            border-left-color: #7a9ef0;
+        }
+
+        .section-title i {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+        }
+
+        /* Info grid */
+        .info-grid {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .info-grid li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 0.6rem 0.9rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 28px;
+            border: 1px solid rgba(120, 150, 200, 0.2);
+            font-size: clamp(0.9rem, 3.2vw, 1rem);
+            backdrop-filter: blur(2px);
+        }
+
+        body.dark .info-grid li {
+            background: rgba(30, 40, 55, 0.6);
+            border-color: #33495f;
+        }
+
+        .info-grid li i {
+            width: 24px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        body.dark .info-grid li i {
+            color: #9bbaff;
+        }
+
+        .info-grid li b {
+            font-weight: 600;
+            min-width: 110px;
+            color: #1d3b6f;
+            flex-shrink: 0;
+            font-size: 0.95rem;
+        }
+
+        body.dark .info-grid li b {
+            color: #cfdeff;
+        }
+
+        .info-grid li span {
+            word-break: break-word;
+            flex: 1;
+        }
+
+        /* Hobby chips */
+        .hobby-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .hobby-tag {
+            background: #e5ecfb;
+            padding: 0.5rem 1.2rem;
             border-radius: 30px;
-            transition: 0.3s;
-            font-weight: bold;
+            font-weight: 500;
+            border: 1px solid #acc2eb;
+            color: #1f3a6b;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+        }
+
+        body.dark .hobby-tag {
+            background: #253449;
+            border-color: #4a6382;
+            color: #d3e0fd;
+        }
+
+        /* Contact section */
+        .contact-section {
+            text-align: center;
+            margin-top: 1.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--btn-gradient);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 6px 12px rgba(0, 20, 50, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.2s;
+            min-width: 160px;
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
         }
 
         .contact-btn:hover {
-            background-color: #00ffea;
-            color: #ffffff;
-            transform: translateY(-2px);
+            background: var(--btn-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 30, 70, 0.3);
         }
 
+        /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            margin-top: 0.5rem;
+            padding: 1.2rem;
             font-size: 0.85rem;
-            color: #888;
+            color: #3f5579;
+        }
+
+        body.dark footer {
+            color: #8f9fc0;
+        }
+
+        /* greeting note */
+        .greeting-note {
+            background: rgba(150, 180, 240, 0.1);
+            border-radius: 28px;
+            padding: 0.8rem 1.2rem;
+            margin: 1.2rem 0 0.2rem;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            border: 1px dashed var(--accent-light);
+            text-align: center;
+        }
+
+        /* year line */
+        .year-line {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            margin: 1.2rem 0 0;
+            opacity: 0.7;
+        }
+
+        /* Responsive fine-tuning */
+        @media (max-width: 480px) {
+            .info-grid li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+
+            .info-grid li b {
+                min-width: auto;
+                font-size: 0.9rem;
+            }
+
+            .info-grid li span {
+                padding-left: 2rem;
+                font-size: 0.95rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                max-width: 240px;
+            }
+
+            .theme-toggle {
+                width: 42px;
+                height: 42px;
+                font-size: 1.3rem;
+                top: 12px;
+                right: 12px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <img src="https://g.top4top.io/p_3693qa5801.jpg" alt="វ៉ា វណ្ណះ" class="profile-img">
-        <h1>វ៉ា វណ្ណះ</h1>
-        <p>ស្វាគមន៍មកកាន់គេហទំព័រផ្ទាល់ខ្លួនរបស់ខ្ញុំ</p>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>នាមខ្លួន</h2>
-            <p>សួស្តី! ខ្ញុំបាទឈ្មោះ <b>វ៉ា វណ្ណះ</b>។</p>
-        </section>
-
-        <section>
-            <h2>ព័ត៌មានលម្អិត</h2>
-            <ul class="info-list">
-                <li><b>ឈ្មោះពេញ:</b> <span>វ៉ា វណ្ណះ</span></li>
-                <li><b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 2010</span></li>
-                <li><b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
-                <li><b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
-                <li><b>ទីកន្លែងកំណើត:</b> <span>​​​​ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span>
-                </li>
-                <li><b>ស្ថានភាព:</b> <span>សិស្ស </span></li>
-                <li><b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span>
-                </li>
-                <li><b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
-            </ul>
-        </section>
-
-        <section style="text-align: center;">
-            <h2>ទំនាក់ទំនង</h2>
-            <p>អ្នកអាចទាក់ទងមកខ្ញុំតាមរយៈប៊ូតុងខាងក្រោម៖</p>
-            <a href="https://m.me/Vannakk67" class="contact-btn">Messenger</a>
-            <a href="https://www.facebook.com/Vannakk67" class="contact-btn">Facebook</a>
-            <a href="https://t.me/NakGenzz" class="contact-btn">Telegram</a>
-            <a href="https://t.me/mycrisisnak" class="contact-btn">Channal TG</a>
-        </section>
+    <div class="theme-toggle" id="themeToggle" title="ប្ដូររបៀប">
+        <i class="fas fa-moon"></i>
     </div>
 
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://h.top4top.io/p_367315nvi0.jpg" alt="វ៉ា វណ្ណះ" class="profile-img">
+            <h1>វ៉ា វណ្ណះ</h1>
+            <p>ស្វាគមន៍មកកាន់គេហទំព័រផ្ទាល់ខ្លួន</p>
+        </div>
+    </section>
+
+    <main class="card">
+        <div class="section-title">
+            <i class="fas fa-user-astronaut"></i> នាមខ្លួន
+        </div>
+        <p style="font-size: clamp(1rem, 3.5vw, 1.2rem);">សួស្តី! ខ្ញុំបាទឈ្មោះ <strong>វ៉ា វណ្ណះ</strong>។</p>
+        <div class="greeting-note">
+            <i class="fas fa-hand-peace"></i> រស់នៅដោយមានគោលដៅ រៀនដើម្បីអនាគត
+        </div>
+
+        <div class="section-title">
+            <i class="fas fa-clipboard-list"></i> ព័ត៌មានលម្អិត
+        </div>
+        <ul class="info-grid">
+            <li><i class="fas fa-signature"></i> <b>ឈ្មោះពេញ:</b> <span>វ៉ា វណ្ណះ</span></li>
+            <li><i class="fas fa-cake-candles"></i> <b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 20XX</span></li>
+            <li><i class="fas fa-graduation-cap"></i> <b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
+            <li><i class="fas fa-school"></i> <b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
+            <li><i class="fas fa-map-pin"></i> <b>ទីកន្លែងកំណើត:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ
+                    ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
+            <li><i class="fas fa-user-tag"></i> <b>ស្ថានភាព:</b> <span>សិស្ស</span></li>
+            <li><i class="fas fa-house-chimney"></i> <b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ
+                    ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
+            <li><i class="fas fa-chart-line"></i> <b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
+        </ul>
+
+        <div class="section-title">
+            <i class="fas fa-heart"></i> ចំណង់ចំណូលចិត្ត
+        </div>
+        <div class="hobby-list">
+            <span class="hobby-tag"><i class="fas fa-headphones"></i> ស្តាប់តន្ត្រី</span>
+            <span class="hobby-tag"><i class="fas fa-laptop-code"></i> សរសេរកូដ</span>
+            <span class="hobby-tag"><i class="fas fa-book-open"></i> អានរឿង</span>
+            <span class="hobby-tag"><i class="fas fa-gamepad"></i> លេងហ្គេម</span>
+        </div>
+
+        <div class="year-line">
+            <span><i class="far fa-calendar-alt"></i> ឆ្នាំនេះ: <span id="currentYear">2026</span></span>
+            <span><i class="far fa-clock"></i> v3.1</span>
+        </div>
+
+        <div class="section-title" style="margin-top: 1.8rem;">
+            <i class="fas fa-address-card"></i> ទំនាក់ទំនង
+        </div>
+        <div class="contact-section">
+            <div class="btn-group">
+                <a href="https://m.me/Vannakk67" class="contact-btn" target="_blank"><i
+                        class="fab fa-facebook-messenger"></i> Messenger</a>
+                <a href="https://t.me/NakGenzz" class="contact-btn" target="_blank"><i
+                        class="fab fa-telegram-plane"></i> Telegram</a>
+            </div>
+            <p style="opacity: 0.6; font-size: 0.8rem;"><i class="fas fa-smile"></i> ឆាតបានដោយសេរី</p>
+        </div>
+    </main>
+
     <footer>
-        Develop Website 2026 រក្សាសិទ្ធិដោយ <b>វ៉ា វណ្ណះ</b>
+        <i class="fas fa-code"></i> Develop Website <span id="footerYear">2026</span> | <b>វ៉ា វណ្ណះ</b> <i
+            class="fas fa-crown" style="color: goldenrod;"></i><br>
+        <span style="font-size: 0.7rem;">រក្សាសិទ្ធិគ្រប់យ៉ាង</span>
     </footer>
 
+    <script>
+        (function () {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                if (body.classList.contains('dark')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            document.getElementById('footerYear').textContent = currentYear;
+        })();
+    </script>
 </body>
 
 </html>
