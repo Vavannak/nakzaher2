@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn English | Free Lessons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">📘 LearnEnglish</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="#vocab">Vocabulary</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Learn English <span>with fun!</span></h1>
+        <p>Free interactive lessons for beginners and intermediate learners.</p>
+        <a href="#vocab" class="btn">Start Learning</a>
+    </section>
+
+    <section id="lessons" class="lessons">
+        <h2>📚 Popular Lessons</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Basic Greetings</h3>
+                <p>Hello, how are you? Learn common phrases.</p>
+                <button class="btn small">Start</button>
+            </div>
+            <div class="card">
+                <h3>Present Simple</h3>
+                <p>Understand when to use "I eat" vs "he eats".</p>
+                <button class="btn small">Start</button>
+            </div>
+            <div class="card">
+                <h3>Vocabulary: Food</h3>
+                <p>Fruits, vegetables, and ordering at a restaurant.</p>
+                <button class="btn small">Start</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🆕 Vocabulary Section with 50 words + Speech + Khmer translation -->
+    <section id="vocab" class="vocab">
+        <h2>🔤 50 Essential Words (English ↔ Khmer)</h2>
+        <p>Click the speaker to hear the pronunciation.</p>
+        <div class="vocab-grid" id="vocabGrid"></div>
+    </section>
+
+    <section id="quiz" class="quiz">
+        <h2>🧠 Quick Vocabulary Quiz</h2>
+        <div class="quiz-box">
+            <p id="question">What is the English word for "manzana"?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkAnswer('apple')">Apple</button>
+                <button class="opt-btn" onclick="checkAnswer('orange')">Orange</button>
+                <button class="opt-btn" onclick="checkAnswer('banana')">Banana</button>
+                <button class="opt-btn" onclick="checkAnswer('grape')">Grape</button>
+            </div>
+            <p id="quiz-feedback"></p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>✉️ Stay Updated</h2>
+        <p>Get new lessons delivered to your inbox.</p>
+        <form id="subscribeForm">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 LearnEnglish — Free resource for English learners</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
