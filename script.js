@@ -61,5 +61,14 @@
         });
     }
     
-    console.log("✅ Modular setup active | Round icon logo (no external image) | Ready for Vercel");
+    // Fallback if logo.jpg is missing (shows a placeholder)
+    const logoImg = document.querySelector('.logo-img');
+    if (logoImg) {
+        logoImg.addEventListener('error', function() {
+            console.warn('logo.jpg not found. Please add the file to the project folder.');
+            this.src = 'https://placehold.co/400x400?text=V';
+        });
+    }
+    
+    console.log("✅ Modular setup | Logo uses logo.jpg file (round) | Favicon also from logo.jpg");
 })();
