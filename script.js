@@ -79,5 +79,5 @@
         });
     }
     
-    console.log("✅ Modular setup active | CSS + JS separated | logo.jpg referenced");
+    console.log("✅ Modular setup active | CSS + JS separated | Logo is round (border-radius: 50%)");
 })();
