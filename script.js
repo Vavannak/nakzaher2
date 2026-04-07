@@ -61,23 +61,5 @@
         });
     }
     
-    // Fallback if logo.jpg missing
-    const logoImg = document.querySelector('.logo-img');
-    if (logoImg) {
-        logoImg.addEventListener('error', function() {
-            console.warn('logo.jpg not found. Please add logo.jpg to the project folder.');
-            this.style.display = 'none';
-            const parent = this.parentElement;
-            if (parent && !parent.querySelector('.fallback-icon')) {
-                const fallback = document.createElement('i');
-                fallback.className = 'fas fa-crown fallback-icon';
-                fallback.style.fontSize = '28px';
-                fallback.style.color = '#ffd966';
-                fallback.style.padding = '6px';
-                parent.insertBefore(fallback, this.nextSibling);
-            }
-        });
-    }
-    
-    console.log("✅ Modular setup active | CSS + JS separated | Logo is round (border-radius: 50%)");
+    console.log("✅ Modular setup active | Round icon logo (no external image) | Ready for Vercel");
 })();
