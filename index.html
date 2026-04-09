@@ -2,94 +2,176 @@
 <html lang="km">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>វ៉ា វណ្ណះ · Portfolio | Elevated Edition</title>
-    <!-- External CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#0a1428">
+    <title>វ៉ា វណ្ណះ · NeoPortfolio v4.0</title>
+    <!-- External CSS & Fonts -->
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon using actual logo.jpg file -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
-    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Moul&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;700;800&family=Moul&display=swap" rel="stylesheet">
+    <!-- Typed.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
-    <!-- WEBSITE LOGO using actual logo.jpg file (round shape) -->
-    <div class="site-logo" id="siteLogo" title="វ៉ា វណ្ណះ · គេហទំព័រផ្លូវការ">
-        <img src="logo.jpg" alt="Vannak Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x400?text=V'">
-        <span class="logo-text">Vannak</span>
-    </div>
-
-    <div class="theme-toggle" id="themeToggle" title="ប្តូររបៀបពន្លឺ/ងងឹត">
-        <i class="fas fa-moon"></i>
-    </div>
-
-    <section class="hero">
-        <div class="hero-content">
-            <img src="https://h.top4top.io/p_367315nvi0.jpg" alt="វ៉ា វណ្ណះ profile" class="profile-img">
-            <h1>វ៉ា វណ្ណះ</h1>
-            <p>ស្វាគមន៍មកកាន់គេហទំព័រផ្ទាល់ខ្លួន</p>
+    <!-- ==================== NAVIGATION BAR (Sticky Glass) ==================== -->
+    <nav class="neo-nav" id="neoNav">
+        <div class="nav-logo">
+            <img src="logo.jpg" alt="Logo" class="nav-logo-img" onerror="this.src='https://placehold.co/40x40?text=V'">
+            <span>វ៉ា វណ្ណះ</span>
         </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" data-i18n="nav_home">ទំព័រដើម</a></li>
+            <li><a href="#about" data-i18n="nav_about">អំពីខ្ញុំ</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">ជំនាញ</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">គម្រោង</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">ទំនាក់ទំនង</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="langToggleBtn" class="icon-btn" title="ខ្មែរ / English"><i class="fas fa-language"></i></button>
+            <button id="themeToggleNav" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <button id="cmdPaletteBtn" class="icon-btn" title="Command Palette (Ctrl+K)"><i class="fas fa-terminal"></i></button>
+            <div class="burger" id="burgerMenu">
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION with Typed Effect ==================== -->
+    <section id="home" class="hero-v4">
+        <div class="hero-bg-particles" id="particlesBg"></div>
+        <div class="hero-container">
+            <div class="hero-greeting">
+                <span class="greeting-text" data-i18n="hero_greeting">សួស្តី! ខ្ញុំឈ្មោះ</span>
+                <h1 class="glitch-text" data-text="វ៉ា វណ្ណះ">វ៉ា វណ្ណះ</h1>
+                <div class="typed-wrapper">
+                    <span class="static-prefix" data-i18n="hero_i_am">ខ្ញុំជា</span>
+                    <span id="typed-role" class="typed-role"></span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary" data-i18n="hero_view_work">មើលគម្រោង</a>
+                    <a href="#contact" class="btn-outline" data-i18n="hero_contact">ទាក់ទង</a>
+                </div>
+            </div>
+            <div class="hero-stats-card">
+                <div class="stat"><i class="fas fa-code"></i><span id="projectCount">0</span><span data-i18n="stat_projects">គម្រោង</span></div>
+                <div class="stat"><i class="fas fa-user-graduate"></i><span>10A</span><span data-i18n="stat_grade">ថ្នាក់</span></div>
+                <div class="stat"><i class="fas fa-globe"></i><span id="visitorCount">0</span><span data-i18n="stat_visitors">អ្នកទស្សនា</span></div>
+            </div>
+        </div>
+        <div class="scroll-down" id="scrollDown"><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <main class="card">
-        <div class="section-title">
-            <i class="fas fa-user-astronaut"></i> នាមខ្លួន
-        </div>
-        <p style="font-size: clamp(1rem, 3.6vw, 1.25rem);">សួស្តី! ខ្ញុំបាទឈ្មោះ <strong>វ៉ា វណ្ណះ</strong>។</p>
-        <div class="greeting-note">
-            <i class="fas fa-hand-peace"></i> Digital Cyber
-        </div>
-
-        <div class="section-title">
-            <i class="fas fa-clipboard-list"></i> ព័ត៌មានលម្អិត
-        </div>
-        <ul class="info-grid">
-            <li><i class="fas fa-signature"></i> <b>ឈ្មោះពេញ:</b> <span>វ៉ា វណ្ណះ</span></li>
-            <li><i class="fas fa-cake-candles"></i> <b>កើតនៅថ្ងៃទី:</b> <span>ថ្ងៃទី26 ខែវិច្ឆិកា ឆ្នាំ 20XX</span></li>
-            <li><i class="fas fa-graduation-cap"></i> <b>រៀនថ្នាក់ទី:</b> <span>10 A</span></li>
-            <li><i class="fas fa-school"></i> <b>ជាសិស្សនៅ:</b> <span>វិទ្យាល័យជ្រោយបន្ទាយ</span></li>
-            <li><i class="fas fa-map-pin"></i> <b>ទីកន្លែងកំណើត:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
-            <li><i class="fas fa-user-tag"></i> <b>ស្ថានភាព:</b> <span>សិស្ស</span></li>
-            <li><i class="fas fa-house-chimney"></i> <b>អាសយដ្ឋានបច្ចុប្បន្ន:</b> <span>ភូមិខ្សាច់ទប់ ឃុំជ្រោយបន្ទាយ ស្រុកព្រែកប្រសព្វ ខេត្តក្រចេះ</span></li>
-            <li><i class="fas fa-chart-line"></i> <b>ជីវភាពបច្ចុប្បន្ន:</b> <span>មធ្យម</span></li>
-        </ul>
-
-        <div class="section-title">
-            <i class="fas fa-heart"></i> ចំណង់ចំណូលចិត្ត
-        </div>
-        <div class="hobby-list">
-            <span class="hobby-tag"><i class="fas fa-headphones"></i> ស្តាប់តន្ត្រី</span>
-            <span class="hobby-tag"><i class="fas fa-laptop-code"></i> សរសេរកូដ</span>
-            <span class="hobby-tag"><i class="fas fa-book-open"></i> អានរឿង</span>
-            <span class="hobby-tag"><i class="fas fa-gamepad"></i> លេងហ្គេម</span>
-        </div>
-
-        <div class="year-line">
-            <span><i class="far fa-calendar-alt"></i> ឆ្នាំនេះ: <span id="currentYear">2026</span></span>
-            <span><i class="fas fa-code-branch"></i> កំណែ v3.2 <span style="font-size:0.7rem;">(Logo File)</span></span>
-            <span><i class="far fa-clock"></i> ប្រព័ន្ធរស់រវើក</span>
-        </div>
-
-        <div class="section-title" style="margin-top: 1.8rem;">
-            <i class="fas fa-address-card"></i> ទំនាក់ទំនង
-        </div>
-        <div class="contact-section">
-            <div class="btn-group">
-                <a href="https://m.me/Vannakk67" class="contact-btn" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
-                <a href="https://t.me/NakGenzz" class="contact-btn" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="neo-container">
+        <!-- ABOUT SECTION (Enhanced) -->
+        <section id="about" class="neo-card">
+            <div class="section-header">
+                <i class="fas fa-user-astronaut"></i>
+                <h2 data-i18n="about_title">អំពីខ្ញុំ</h2>
             </div>
-            <p style="opacity: 0.65; font-size: 0.8rem; margin-top: 0.5rem;"><i class="fas fa-smile-wink"></i> ឆាតបានដោយសេរី — រីករាយក្នុងការស្វាគមន៍</p>
-        </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about_p1">សួស្តី! ខ្ញុំបាទឈ្មោះ <strong>វ៉ា វណ្ណះ</strong> ជាសិស្សថ្នាក់ទី១០ នៅវិទ្យាល័យជ្រោយបន្ទាយ។</p>
+                    <p data-i18n="about_p2">ខ្ញុំមានចំណង់ចំណូលចិត្តផ្នែកបច្ចេកវិទ្យា សរសេរកូដ និងស្វែងយល់ពីប្រព័ន្ធឌីជីថល។</p>
+                    <div class="info-chips">
+                        <span><i class="fas fa-map-marker-alt"></i> ភូមិខ្សាច់ទប់, ក្រចេះ</span>
+                        <span><i class="fas fa-birthday-cake"></i> 26 វិច្ឆិកា</span>
+                        <span><i class="fas fa-chart-line"></i> <span data-i18n="status_student">សិស្ស</span></span>
+                    </div>
+                </div>
+                <div class="about-quote">
+                    <i class="fas fa-quote-left"></i> "Digital Cyber"<i class="fas fa-quote-right"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION (Radial Progress + Hobby Tags) -->
+        <section id="skills" class="neo-card">
+            <div class="section-header">
+                <i class="fas fa-cogs"></i>
+                <h2 data-i18n="skills_title">ជំនាញ & ចំណូលចិត្ត</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item" data-skill="90"><canvas width="120" height="120"></canvas><span>HTML/CSS</span></div>
+                <div class="skill-item" data-skill="75"><canvas width="120" height="120"></canvas><span>JavaScript</span></div>
+                <div class="skill-item" data-skill="65"><canvas width="120" height="120"></canvas><span>Python</span></div>
+                <div class="skill-item" data-skill="50"><canvas width="120" height="120"></canvas><span>Cybersecurity</span></div>
+            </div>
+            <div class="hobby-grid-v4">
+                <div class="hobby-card"><i class="fas fa-headphones"></i> ស្តាប់តន្ត្រី</div>
+                <div class="hobby-card"><i class="fas fa-laptop-code"></i> សរសេរកូដ</div>
+                <div class="hobby-card"><i class="fas fa-book-open"></i> អានរឿង</div>
+                <div class="hobby-card"><i class="fas fa-gamepad"></i> លេងហ្គេម</div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION (Dynamic Showcase) -->
+        <section id="projects" class="neo-card">
+            <div class="section-header">
+                <i class="fas fa-project-diagram"></i>
+                <h2 data-i18n="projects_title">គម្រោងពិសេស</h2>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects injected via JS (3 demo projects) -->
+            </div>
+        </section>
+
+        <!-- SYSTEM DASHBOARD (New System Feature) -->
+        <section id="system-dashboard" class="neo-card dashboard-card">
+            <div class="section-header">
+                <i class="fas fa-tachometer-alt"></i>
+                <h2 data-i18n="dashboard_title">System Dashboard</h2>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dash-item"><i class="fas fa-clock"></i> <span id="liveClock">--:--:--</span></div>
+                <div class="dash-item"><i class="fas fa-mobile-alt"></i> <span id="deviceInfo">Loading...</span></div>
+                <div class="dash-item"><i class="fas fa-palette"></i> <span id="themeStatus">Dark Mode</span></div>
+                <div class="dash-item"><i class="fas fa-database"></i> <span id="storageUsed">0 MB</span></div>
+                <div class="dash-item"><i class="fas fa-network-wired"></i> <span id="connectionStatus">Online</span></div>
+                <div class="dash-item"><i class="fas fa-brain"></i> <span id="sessionCount">0 sessions</span></div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (with working form) -->
+        <section id="contact" class="neo-card">
+            <div class="section-header">
+                <i class="fas fa-address-card"></i>
+                <h2 data-i18n="contact_title">ទំនាក់ទំនង</h2>
+            </div>
+            <div class="contact-flex">
+                <div class="contact-social">
+                    <a href="https://m.me/Vannakk67" class="social-btn messenger" target="_blank"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+                    <a href="https://t.me/NakGenzz" class="social-btn telegram" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                </div>
+                <div class="contact-form">
+                    <h3 data-i18n="form_title">ផ្ញើសារមកខ្ញុំ</h3>
+                    <input type="text" id="msgName" placeholder="ឈ្មោះរបស់អ្នក" data-i18n-placeholder="form_name">
+                    <input type="email" id="msgEmail" placeholder="អ៊ីមែល">
+                    <textarea id="msgText" rows="3" placeholder="សាររបស់អ្នក..."></textarea>
+                    <button id="sendMsgBtn" class="btn-primary"><i class="fas fa-paper-plane"></i> ផ្ញើ</button>
+                    <div id="toastMsg" class="toast-notify"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <i class="fas fa-gem"></i> Designed & Developed <span id="footerYear">2026</span> | <b>វ៉ា វណ្ណះ</b> <i class="fas fa-crown" style="color: goldenrod;"></i><br>
-        <span style="font-size: 0.7rem; display: inline-block; margin-top: 4px;">✨ ឡូហ្គោពីឯកសារ logo.jpg | រាងមូល ✨</span>
+    <!-- FOOTER -->
+    <footer class="neo-footer">
+        <p><i class="fas fa-gem"></i> Designed & Developed by <strong>វ៉ា វណ្ណះ</strong> | v4.0 <span id="footerYear"></span></p>
+        <p class="footer-note"><i class="fas fa-crown"></i> SHADOW-CORE MODE · NeoSystem Active</p>
     </footer>
 
-    <!-- External JavaScript -->
+    <!-- Command Palette Modal -->
+    <div id="cmdPalette" class="cmd-modal">
+        <div class="cmd-content">
+            <input type="text" id="cmdInput" placeholder="Type a command or section name... (home, about, skills, projects, contact, dark, light)">
+            <ul id="cmdResults"></ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
