@@ -1,0 +1,74 @@
+// script.js - Theme toggling, dynamic year, logo click, parallax effect
+(function() {
+    // Theme system
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+    
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            body.classList.remove('dark');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+        localStorage.setItem('theme', theme);
+    };
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+    
+    // Update current year
+    const currentYear = new Date().getFullYear();
+    const yearSpans = document.querySelectorAll('#currentYear, #footerYear');
+    yearSpans.forEach(span => {
+        if (span) span.textContent = currentYear;
+    });
+    
+    // Logo click → smooth scroll to top
+    const siteLogo = document.getElementById('siteLogo');
+    if (siteLogo) {
+        siteLogo.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
+    // Hero subtle parallax effect
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                const x = (e.clientX / window.innerWidth) * 12;
+                const y = (e.clientY / window.innerHeight) * 8;
+                heroContent.style.transform = `perspective(1000px) rotateX(${y * 0.04}deg) rotateY(${x * 0.04}deg)`;
+            }
+        });
+        heroContent.addEventListener('mouseleave', () => {
+            heroContent.style.transform = '';
+        });
+    }
+    
+    // Fallback if logo.jpg is missing (shows a placeholder)
+    const logoImg = document.querySelector('.logo-img');
+    if (logoImg) {
+        logoImg.addEventListener('error', function() {
+            console.warn('logo.jpg not found. Please add the file to the project folder.');
+            this.src = 'https://placehold.co/400x400?text=V';
+        });
+    }
+    
+    console.log("✅ Modular setup | Logo uses logo.jpg file (round) | Favicon also from logo.jpg");
+})();
