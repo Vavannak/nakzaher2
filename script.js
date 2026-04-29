@@ -1,6 +1,8 @@
-// script.js - Theme toggling, dynamic year, logo click, parallax effect
+// script.js - Theme toggle, dynamic year, parallax, and background music
+// Music starts automatically on first user click anywhere
+
 (function() {
-    // Theme system
+    // ----- THEME SYSTEM -----
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const icon = themeToggle.querySelector('i');
@@ -31,44 +33,108 @@
         applyTheme(newTheme);
     });
     
-    // Update current year
+    // ----- DYNAMIC YEAR -----
     const currentYear = new Date().getFullYear();
-    const yearSpans = document.querySelectorAll('#currentYear, #footerYear');
-    yearSpans.forEach(span => {
+    document.querySelectorAll('#currentYear, #footerYear').forEach(span => {
         if (span) span.textContent = currentYear;
     });
     
-    // Logo click → smooth scroll to top
+    // ----- LOGO CLICK SCROLL TOP -----
     const siteLogo = document.getElementById('siteLogo');
     if (siteLogo) {
-        siteLogo.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        siteLogo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
     
-    // Hero subtle parallax effect
+    // ----- PARALLAX EFFECT -----
     const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
+    if (heroContent && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768) {
-                const x = (e.clientX / window.innerWidth) * 12;
-                const y = (e.clientY / window.innerHeight) * 8;
-                heroContent.style.transform = `perspective(1000px) rotateX(${y * 0.04}deg) rotateY(${x * 0.04}deg)`;
-            }
+            const x = (e.clientX / window.innerWidth) * 12;
+            const y = (e.clientY / window.innerHeight) * 8;
+            heroContent.style.transform = `perspective(1000px) rotateX(${y * 0.04}deg) rotateY(${x * 0.04}deg)`;
         });
-        heroContent.addEventListener('mouseleave', () => {
-            heroContent.style.transform = '';
-        });
+        heroContent.addEventListener('mouseleave', () => heroContent.style.transform = '');
     }
     
-    // Fallback if logo.jpg is missing (shows a placeholder)
+    // ----- LOGO IMAGE FALLBACK -----
     const logoImg = document.querySelector('.logo-img');
     if (logoImg) {
         logoImg.addEventListener('error', function() {
-            console.warn('logo.jpg not found. Please add the file to the project folder.');
             this.src = 'https://placehold.co/400x400?text=V';
         });
     }
     
-    console.log("✅ Modular setup | Logo uses logo.jpg file (round) | Favicon also from logo.jpg");
+    // ========== 🎵 BACKGROUND MUSIC (auto-play on first click) ==========
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicControl');
+    let isPlaying = false;
+    let firstClickDone = false;
+    
+    const playMusic = () => {
+        if (!audio) return;
+        audio.play()
+            .then(() => {
+                isPlaying = true;
+                if (musicBtn) {
+                    musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicBtn.classList.add('playing');
+                }
+            })
+            .catch(err => console.warn('Playback error:', err));
+    };
+    
+    const pauseMusic = () => {
+        if (!audio) return;
+        audio.pause();
+        isPlaying = false;
+        if (musicBtn) {
+            musicBtn.innerHTML = '<i class="fas fa-play"></i>';
+            musicBtn.classList.remove('playing');
+        }
+    };
+    
+    const toggleMusic = () => {
+        if (isPlaying) pauseMusic();
+        else playMusic();
+    };
+    
+    // Music button click
+    if (musicBtn) {
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMusic();
+            if (!firstClickDone) firstClickDone = true;
+        });
+    }
+    
+    // First click anywhere on page → auto play music
+    const globalClickHandler = () => {
+        if (!firstClickDone && audio) {
+            if (audio.readyState >= 2) {
+                playMusic();
+            } else {
+                audio.addEventListener('canplaythrough', () => playMusic(), { once: true });
+                playMusic(); // try anyway
+            }
+            firstClickDone = true;
+            document.removeEventListener('click', globalClickHandler);
+        }
+    };
+    
+    if (audio) {
+        // Small delay to ensure DOM ready
+        setTimeout(() => document.addEventListener('click', globalClickHandler), 100);
+        
+        audio.addEventListener('error', () => console.warn('music.mp3 not found — please add the file.'));
+        
+        // Sync button if audio ends (though loop is active)
+        audio.addEventListener('ended', () => {
+            if (!audio.loop) {
+                isPlaying = false;
+                if (musicBtn) musicBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+    }
+    
+    console.log('✅ All systems ready — first click will start background music');
 })();
