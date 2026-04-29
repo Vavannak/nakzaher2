@@ -1,4 +1,4 @@
-/* style.css - All styling for Vannak Portfolio (using logo.jpg as round image) */
+/* style.css - All styling for Vannak Portfolio (including music button) */
 :root {
     --bg-light: #f0f4fa;
     --text-light: #132a3c;
@@ -36,7 +36,7 @@ body.dark {
     color: var(--text-dark);
 }
 
-/* ===== WEBSITE LOGO (using actual logo.jpg, round shape) ===== */
+/* ===== WEBSITE LOGO (round shape) ===== */
 .site-logo {
     position: fixed;
     top: 18px;
@@ -53,7 +53,6 @@ body.dark {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: var(--transition-smooth);
     cursor: pointer;
-    text-decoration: none;
 }
 
 .site-logo:hover {
@@ -65,8 +64,8 @@ body.dark {
 .logo-img {
     width: 40px;
     height: 40px;
-    border-radius: 50%;          /* ← perfectly round */
-    object-fit: cover;           /* ensures image fills circle without distortion */
+    border-radius: 50%;
+    object-fit: cover;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 200, 0.5);
 }
@@ -402,6 +401,62 @@ body.dark footer {
     color: #a5b9da;
 }
 
+/* ===== MUSIC CONTROL BUTTON (fixed bottom right) ===== */
+.music-control {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: rgba(10, 25, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 215, 120, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-control:hover {
+    transform: scale(1.08);
+    background: rgba(44, 90, 158, 0.9);
+    border-color: #ffd966;
+}
+
+.music-control.playing {
+    background: rgba(44, 90, 158, 0.9);
+    box-shadow: 0 0 12px rgba(100, 180, 250, 0.6);
+    animation: pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(44, 90, 158, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(44, 90, 158, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(44, 90, 158, 0);
+    }
+}
+
+body.dark .music-control {
+    background: rgba(20, 30, 55, 0.9);
+    border-color: #ffcd7e;
+}
+
+body.dark .music-control.playing {
+    background: #2c5a9e;
+    box-shadow: 0 0 12px #7aaef0;
+}
+
 /* Responsive */
 @media (max-width: 580px) {
     .site-logo .logo-text {
@@ -439,6 +494,13 @@ body.dark footer {
         height: 44px;
         top: 14px;
         right: 14px;
+    }
+    .music-control {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        right: 16px;
+        font-size: 1.4rem;
     }
 }
 
